@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-go-pipeline
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-go-pipeline
+  template:
+    metadata:
+      labels:
+        app: demo-go-pipeline
+    spec:
+      containers:
+      - name: demo-go-pipeline
+        image: asia.gcr.io/innovationlab-devops/demo-go-pipeline:latest
+        ports:
+        - containerPort: 8080
